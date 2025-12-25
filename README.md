@@ -2,11 +2,23 @@
 Documentation for the Dividend Data Spreadsheet Add On. Google Sheets &amp; Microsoft Excel.
 
 This add-on provides custom functions for fetching stock data from Dividend Data. It includes tools for dividends, statements, metrics, ratios, growth, quotes, profiles, funds, segments, KPIs, commodities, and batch quotes/dividends.
+
 To use, install the add-on in Google Sheets and use the functions in cells.
 
 # How to Install
 Early Access: Google Sheets
+
 Use the following link: https://workspace.google.com/marketplace/app/dividend_data/427484236221
+
+Step 1: Download from Google Sheets Store (link above)
+
+Step 2: Open a new Google Sheets file or reload your browser.
+
+Step 3: Open via Extensions > Dividend Data > Open Dividend Data Sidebar. This ensures our custom functions load in your sheets. Plus, it has great examples and quick actions.
+
+Step 4: Start building your sheets with our data.
+
+**Microsoft Excel is coming soon! It's in active development. Your feedback is appreciated in this early access period!((
 
 _Below, I'll explain each of the functions available:_
 
