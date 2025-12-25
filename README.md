@@ -15,6 +15,7 @@ Use the following link: https://workspace.google.com/marketplace/app/dividend_da
 **Step 2:** Open a new Google Sheets file or reload your browser.
 
 **Step 3:** Open via Extensions > Dividend Data > Open Dividend Data Sidebar. This ensures our custom functions load in your sheets. Plus, it has great examples and quick actions.
+
 ![Alt text for the image](https://github.com/divdatdev/Dividend-Data-Spreadsheet-Docs/blob/6faa86ed333f045c9a8bf7892a1e4c8bfd491185/Sheets%20Extensions%20Image.png)
 
 **Step 4:** Start building your sheets with our data.
