@@ -5,20 +5,39 @@ This add-on provides custom functions for fetching stock data from Dividend Data
 
 To use, install the add-on in Google Sheets and use the functions in cells.
 
-# How to Install
-Early Access: Google Sheets
+# How to Install & Update
+**Early Access: Google Sheets**
 
 Use the following link: https://workspace.google.com/marketplace/app/dividend_data/427484236221
 
-**Step 1:** Download from Google Sheets Store (link above)
+### ⚠️ CRITICAL: Authorization Required
+**You must check all permission boxes when installing.**
 
-**Step 2:** Open a new Google Sheets file or reload your browser.
+The add-on requires specific permissions to run calculations and display data in your spreadsheet. If you do not accept the authorization prompts, the add-on **will not work**.
 
-**Step 3:** Open via Extensions > Dividend Data > Open Dividend Data Sidebar. This ensures our custom functions load in your sheets. Plus, it has great examples and quick actions.
+**Why?** Google requires your explicit permission for us to fetch financial data from our servers and display it inside your sheet. If you leave boxes unchecked, you are blocking the add-on from accessing the spreadsheet to write the data you requested.
+
+---
+
+### Step-by-Step Installation
+1.  **Download:** Click the link above to visit the Google Workspace Marketplace and click **Install**.
+2.  **Authorize:** When prompted, select your Google Account. **You must verify/check ALL boxes** to allow the add-on to function.
+3.  **Launch:** Open a Google Sheet. Go to **Extensions > Dividend Data > Open Dividend Data Sidebar**.
+    * *Note: If you do not see the menu, reload your browser tab.*
 
 ![Alt text for the image](https://github.com/divdatdev/Dividend-Data-Spreadsheet-Docs/blob/6faa86ed333f045c9a8bf7892a1e4c8bfd491185/Sheets%20Extensions%20Image.png)
 
-**Step 4:** Start building your sheets with our data.
+### Troubleshooting: "Permission Denied" or Not Working?
+If you are getting errors immediately after installing, you likely missed an authorization checkbox.
+
+**How to Fix or Install the Newsest Version:**
+1.  Go to **Extensions > Add-ons > Manage Add-ons**.
+2.  Find **Dividend Data** and select **Uninstall**.
+3.  Refresh your page.
+4.  **Reinstall** the add-on.
+5.  **IMPORTANT:** When the "Sign in with Google" popup appears, make sure to **Check/Allow ALL permissions**.
+
+---
 
 _Microsoft Excel is coming soon! It's in active development. Your feedback is appreciated in this early access period!_
 
@@ -493,7 +512,18 @@ Retrieves stock quote data, including current price, changes, or historical pric
 
 **symbol**: Stock ticker symbol (e.g., `"AAPL"`). Required.
 
-**metric**: The quote metrics: `"price"`, `"change"`, `"volume"`, `"full"`, `"history"` (default: `"price"`).
+**metric**: The quote metrics to retrieve. (default: `"price"`).
+
+_Available metrics:_
+- `"price"` (Current Price)
+- `"change"` (Price Change)
+- `"volume"` (Volume)
+- `"priceAvg50"` (50 Day Average Price)
+- `"priceAvg200"` (200 Day Average Price)
+- `"yearHigh"` (52 Week High)
+- `"yearLow"` (52 Week Low)
+- `"full"` (Returns all quote data points in a table)
+- `"history"` (Returns historical price data)
 
 **fromDate**: Start date for history (`"YYYY-MM-DD"`, for history only).
 
@@ -507,10 +537,13 @@ Retrieves stock quote data, including current price, changes, or historical pric
 
 **Output**: Current price.
 
+**Input**: `=DIVIDENDDATA_QUOTE("MSFT", "priceAvg50")`
+
+**Output**: The 50-day moving average price.
+
 **Input**: `=DIVIDENDDATA_QUOTE("MSFT", "history", "2024-01-01", "2024-12-31", TRUE)`
 
 **Output**: Historical price table with headers.
-
 
 ## 8) DIVIDENDDATA_QUOTE_BATCH
 ### Description
@@ -817,5 +850,41 @@ Retrieves analyst price targets for a stock. Returns summary metrics, consensus 
 **Input**: `=DIVIDENDDATA_PRICE_TARGET("GOOGL", "news", TRUE)`
 
 **Output**: Recent price target news table with headers.
+
+## 16) DIVIDENDDATA_ESTIMATES
+### Description
+Retrieves analyst estimates for earnings and revenue. Returns a summary table of future estimates, specific metric history (estimates vs actuals), or single next-year values for quick watchlist building. Useful for forecasting future growth, valuation models, and gauging analyst expectations.
+
+### Parameters
+**symbol**: Stock ticker symbol (e.g., `"MSFT"`). Required.
+
+**metric**: The estimate metric to retrieve (default: `"summary"`).
+
+_Available metrics:_
+* `"summary"` (Returns a full table including: Date, Avg EPS Estimate, EPS Growth, High/Low EPS Estimates, Avg Revenue Estimate, Revenue Growth, High/Low Revenue Estimates, and Analyst Counts).
+* `"eps"` (Returns: Date, Avg EPS Estimate, EPS Growth).
+* `"revenue"` (Returns: Date, Avg Revenue Estimate, Revenue Growth).
+* `"next_year_eps"` (Returns a single value for the nearest future year's estimated EPS).
+* `"next_year_revenue"` (Returns a single value for the nearest future year's estimated Revenue).
+* `"next_year_eps_growth"` (Returns a single value for next year's estimated EPS growth %).
+* `"next_year_revenue_growth"` (Returns a single value for next year's estimated Revenue growth %).
+
+**period**: Period: `"annual"` or `"quarter"` (default: `"annual"`).
+
+**showHeaders**: Include headers for tables (default: `true`).
+
+### Examples:
+
+**Input**: `=DIVIDENDDATA_ESTIMATES("MSFT", "summary")`
+
+**Output**: A comprehensive table of future analyst estimates for earnings and revenue.
+
+**Input**: `=DIVIDENDDATA_ESTIMATES("AAPL", "next_year_eps")`
+
+**Output**: A single value representing the average EPS estimate for the next fiscal year (e.g., `7.25`).
+
+**Input**: `=DIVIDENDDATA_ESTIMATES("NVDA", "revenue", "quarter")`
+
+**Output**: A table showing quarterly revenue estimates and growth rates.
 
 </DOCUMENT>
