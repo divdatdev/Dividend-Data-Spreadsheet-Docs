@@ -59,6 +59,9 @@ _Available metrics:_
 - `"fwd_yield"` (forward yield)
 - `"ttm_yield"` (TTM yield)
 - `"frequency"` (payment frequency)
+- `"ex_div_date"` (most recent ex-dividend date)
+- `"payment_date"` (most recent payment date)
+- `"declaration_date"` (most recent declaration date)
 - `"history"` (historical table)
 - `"summary"` (summary table)
 - `"growth"` (growth rates table)
@@ -76,6 +79,10 @@ _Available metrics:_
 **Input**: `=DIVIDENDDATA("MSFT", "fwd_yield")`
 
 **Output**: Forward dividend yield as decimal (e.g., 0.008).
+
+**Input:** =DIVIDENDDATA("MSFT", "ex_div_date")
+
+**Output:** Most recent ex-dividend date (e.g., 2025-11-19).
 
 **Input**: `=DIVIDENDDATA("MSFT", "history", TRUE)`
 
@@ -118,9 +125,9 @@ _Available metrics:_
 - `"fwd_payout"`
 - `"adjdividend"`
 - `"dividend"`
-- `"recorddate"`
-- `"declarationdate"`
-- `"paymentdate"`
+- `"record_date"` (or `"recorddate"`)
+- `"declaration_date"` (or `"declarationdate"`)
+- `"payment_date"` (or `"paymentdate"`)
 - `"yield"`
 - `"frequency"`
 
