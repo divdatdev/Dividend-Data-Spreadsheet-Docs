@@ -58,6 +58,8 @@ _Available metrics:_
 - `"ttm_payout"` (TTM payout)
 - `"fwd_yield"` (forward yield)
 - `"ttm_yield"` (TTM yield)
+- `"next_dividend"` (Next declared payout amount)
+- `"next_dividend_full"` (Table: Amount, Decl Date, Ex Date, Pay Date, Frequency)
 - `"frequency"` (payment frequency)
 - `"ex_div_date"` (most recent ex-dividend date)
 - `"payment_date"` (most recent payment date)
@@ -88,12 +90,12 @@ _Available metrics:_
 
 **Output**: Table with headers and full historical dividend data.
 
-| Declaration Date  | Record Date | Payment Date  | Adjusted Dividend | Dividend  | Yield | Frequency |
+| Declaration Date  | Record Date | Payment Date  | Adjusted Dividend | Dividend  | Growth Rate | Frequency |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 9/14/2025 | 11/19/2025  | 12/10/2025  | $0.91  | $0.91  | 0.65%  | Quarterly |
-| 6/9/2025 | 8/20/2025 | 9/10/2025  | $0.83  | $0.83 | 0.65%  | Quarterly |
-| 3/10/2025  | 5/14/2025  | 6/11/2025  | $0.83  | $0.83  | 0.72%  | Quarterly |
-| 12/2/2024 | 2/19/2025  | 3/12/2025  | $0.83  | $0.83  | 0.76%  | Quarterly  |
+| 9/14/2025 | 11/19/2025  | 12/10/2025  | $0.91  | $0.91  | 0.096 (9.6%)  | Quarterly |
+| 6/9/2025 | 8/20/2025 | 9/10/2025  | $0.83  | $0.83 | 0  | Quarterly |
+| 3/10/2025  | 5/14/2025  | 6/11/2025  | $0.83  | $0.83  | 0  | Quarterly |
+| 12/2/2024 | 2/19/2025  | 3/12/2025  | $0.83  | $0.83  | 0 | Quarterly  |
 
 _(The data above is formatted. In reality, it will return the raw numbers. You can choose how to format within the returned cells.)_
 
@@ -101,9 +103,9 @@ _(The data above is formatted. In reality, it will return the raw numbers. You c
 
 **Output**: Table with headers and current full historical dividend data.
 
-| Annual Dividend (FWD)	| Dividend Yield (FWD)	| Annual Dividend (TTM)	| Dividend Yield (TTM)	| Payment Frequency	| 1 Year CAGR |	3 Year CAGR |	5 Year CAGR |	10 Year CAGR |	Payout Ratio (Net Income) |	Payout Ratio (Free Cash Flow) |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| $3.64 |	0.70% |	$3.32 |	0.64% |	Quarterly |	9.64% |	10.1% |	10.1% |	9.7% |	23.64% |	33.62% |
+| Annual Dividend (FWD)	| Dividend Yield (FWD)	| Annual Dividend (TTM)	| Dividend Yield (TTM)	| Payment Frequency	| Next Dividend | Declaration Date | Ex-Div Date | Payment Date | 1 Year CAGR |	3 Year CAGR |	5 Year CAGR |	10 Year CAGR |	Payout Ratio (Net Income) | Payout Ratio (Free Cash Flow) |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| $3.64 |	0.70% |	$3.32 |	0.64% |	Quarterly |	0.91 |	2025-12-01 |	2026-02-18 |	2026-03-11 |	9.64% |	10.1% |	10.1% |	9.7% |	23.64% |	33.62% |
 
 _(The data above is formatted. In reality, it will return the raw numbers. You can choose how to format within the returned cells.)_
 
