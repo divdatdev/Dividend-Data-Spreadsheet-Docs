@@ -56,8 +56,8 @@ Retrieves various dividend-related data for a single stock symbol. This function
 _Available metrics:_ 
 - `"fwd_payout"` (forward annual payout)
 - `"ttm_payout"` (TTM payout)
-- `"fwd_yield"` (forward yield)
-- `"ttm_yield"` (TTM yield)
+- `"fwd_yield"` (forward dividend yield)
+- `"ttm_yield"` (TTM dividend yield)
 - `"next_dividend"` (Next declared payout amount)
 - `"next_dividend_full"` (Table: Amount, Decl Date, Ex Date, Pay Date, Frequency)
 - `"frequency"` (payment frequency)
@@ -124,14 +124,14 @@ Retrieves batch dividend data for multiple stock symbols. This function is effic
 - `"history"` Get the dividend history of all provided tickers.
 
 _Available metrics:_ 
-- `"fwd_payout"`
-- `"adjdividend"`
-- `"dividend"`
-- `"record_date"` (or `"recorddate"`)
-- `"declaration_date"` (or `"declarationdate"`)
-- `"payment_date"` (or `"paymentdate"`)
-- `"yield"`
-- `"frequency"`
+- `"fwd_payout"` (forward annual payout)
+- `"adjdividend"` (most recent declared adjusted dividend)
+- `"dividend"` (most recent declared dividend)
+- `"record_date"` (or `"recorddate"`) (most recent record date)
+- `"declaration_date"` (or `"declarationdate"`) (most recent declaration date)
+- `"payment_date"` (or `"paymentdate"`) (most recent payment date)
+- `"yield"` (dividend yield)
+- `"frequency"` (payment frequency)
 
 **showHeaders**: Boolean to include header row and symbol column (defaults to true for `"all"` or `"history"`).
 
@@ -344,14 +344,14 @@ _All available metrics:_
 * `"EnterpriseValue"` (Enterprise Value)
 * `"PeRatio"` (Pe Ratio)
 * `"PriceToSalesRatio"` (Price To Sales Ratio)
-* `"Pocfratio"` (Pocfratio)
-* `"PfcfRatio"` (Pfcf Ratio)
-* `"PbRatio"` (Pb Ratio)
-* `"PtbRatio"` (Ptb Ratio)
-* `"EvToSales"` (Ev To Sales)
+* `"Pocfratio"` (Price to Operating Cash Flow Ratio)
+* `"PfcfRatio"` (Price to Free Cash Flow Ratio)
+* `"PbRatio"` (Price Book Value Ratio)
+* `"PtbRatio"` (Price to Book Ratio)
+* `"EvToSales"` (Enterprise Value to Sales)
 * `"EnterpriseValueOverEBITDA"` (Enterprise Value Over EBITDA)
-* `"EvToOperatingCashFlow"` (Ev To Operating Cash Flow)
-* `"EvToFreeCashFlow"` (Ev To Free Cash Flow)
+* `"EvToOperatingCashFlow"` (Enterprise Value To Operating Cash Flow)
+* `"EvToFreeCashFlow"` (Enterprise Value To Free Cash Flow)
 * `"EarningsYield"` (Earnings Yield)
 * `"FreeCashFlowYield"` (Free Cash Flow Yield)
 * `"DebtToEquity"` (Debt To Equity)
@@ -370,7 +370,7 @@ _All available metrics:_
 * `"CapexToDepreciation"` (Capex To Depreciation)
 * `"StockBasedCompensationToRevenue"` (Stock Based Compensation To Revenue)
 * `"GrahamNumber"` (Graham Number)
-* `"Roic"` (Roic)
+* `"Roic"` (Return on Investing Capital)
 * `"ReturnOnTangibleAssets"` (Return On Tangible Assets)
 * `"GrahamNetNet"` (Graham Net Net)
 * `"WorkingCapital"` (Working Capital)
@@ -386,7 +386,7 @@ _All available metrics:_
 * `"ReceivablesTurnover"` (Receivables Turnover)
 * `"PayablesTurnover"` (Payables Turnover)
 * `"InventoryTurnover"` (Inventory Turnover)
-* `"Roe"` (Roe)
+* `"Roe"` (Return on Equity)
 * `"CapexPerShare"` (Capex Per Share)
 * `"CurrentRatio"` (Current Ratio)
 * `"QuickRatio"` (Quick Ratio)
@@ -462,8 +462,8 @@ _All available metrics:_
 * `"Ebitgrowth"` (Ebitgrowth)
 * `"OperatingIncomeGrowth"` (Operating Income Growth)
 * `"NetIncomeGrowth"` (Net Income Growth)
-* `"Epsgrowth"` (Epsgrowth)
-* `"EpsdilutedGrowth"` (Epsdiluted Growth)
+* `"Epsgrowth"` (GAAP EPS growth)
+* `"EpsdilutedGrowth"` (EPS diluted Growth)
 * `"WeightedAverageSharesGrowth"` (Weighted Average Shares Growth)
 * `"WeightedAverageSharesDilutedGrowth"` (Weighted Average Shares Diluted Growth)
 * `"DividendsPerShareGrowth"` (Dividends Per Share Growth)
@@ -479,9 +479,9 @@ _All available metrics:_
 * `"TenYRevenueGrowthPerShare"` (Ten Y Revenue Growth Per Share)
 * `"FiveYRevenueGrowthPerShare"` (Five Y Revenue Growth Per Share)
 * `"ThreeYRevenueGrowthPerShare"` (Three Y Revenue Growth Per Share)
-* `"TenYOperatingCFGrowthPerShare"` (Ten Y Operating CF Growth Per Share)
-* `"FiveYOperatingCFGrowthPerShare"` (Five Y Operating CF Growth Per Share)
-* `"ThreeYOperatingCFGrowthPerShare"` (Three Y Operating CF Growth Per Share)
+* `"TenYOperatingCFGrowthPerShare"` (Ten Y Operating Cash Flow Growth Per Share)
+* `"FiveYOperatingCFGrowthPerShare"` (Five Y Operating Cash Flow Growth Per Share)
+* `"ThreeYOperatingCFGrowthPerShare"` (Three Y Operating Cash Flow Growth Per Share)
 * `"TenYNetIncomeGrowthPerShare"` (Ten Y Net Income Growth Per Share)
 * `"FiveYNetIncomeGrowthPerShare"` (Five Y Net Income Growth Per Share)
 * `"ThreeYNetIncomeGrowthPerShare"` (Three Y Net Income Growth Per Share)
@@ -622,9 +622,9 @@ _All available metrics:_
 * `"defaultimage"` (Default Image)
 * `"isetf"` (Is Etf)
 * `"isactivelytrading"` (Is Actively Trading)
-* `"isadr"` (Is Adr)
-* `"isfund"` (Is Fund)
-* `"full"` (Full)
+* `"isadr"` (Is ADR?)
+* `"isfund"` (Is Fund?)
+* `"full"` (Return Full Profile)
 
 **showHeaders**: Include headers for `"full"` (default: `false`).
 
@@ -653,8 +653,8 @@ _All available metrics:_
 * `"expenseratio"` (Expense Ratio)
 * `"assetsundermanagement"` (Assets Under Management)
 * `"holdings"` (Holdings)
-* `"nav"` (Nav)
-* `"navcurrency"` (Nav Currency)
+* `"nav"` (Net Asset Value)
+* `"navcurrency"` (NAV Currency)
 * `"holdingscount"` (Holdings Count)
 * `"countryweighting"` (Country Weighting)
 * `"sectorslist"` (Sectors List)
