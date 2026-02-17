@@ -1,9 +1,72 @@
-# Dividend-Data-Spreadsheet-Docs
-Documentation for the Dividend Data Spreadsheet Add On. Google Sheets &amp; Microsoft Excel.
+# Dividend Data — Google Sheets Add-in
 
-This add-on provides custom functions for fetching stock data from Dividend Data. It includes tools for dividends, statements, metrics, ratios, growth, quotes, profiles, funds, segments, KPIs, commodities, and batch quotes/dividends.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/divdatdev/Dividend-Data-Spreadsheet-Docs/main/logo/LogoNew.png" alt="Dividend Data Logo" width="120"/>
+</p>
 
-To use, install the add-on in Google Sheets and use the functions in cells.
+<p align="center">
+  <strong>Access 30+ years of financial data directly in Google Sheets.</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.dividenddata.com">Website</a> •
+  <a href="https://help.dividenddata.com">Help Center</a> •
+  <a href="https://www.youtube.com/@DividendData">YouTube</a>
+</p>
+
+---
+
+## Quick Reference
+
+| Function | Description |
+|----------|-------------|
+| `DIVIDENDDATA_DIVIDENDS` | Dividend data (payouts, yields, history, growth) |
+| `DIVIDENDDATA_DIVIDENDS_BATCH` | Batch dividend data for multiple stocks |
+| `DIVIDENDDATA_STATEMENT` | Financial statements (income, balance, cash flow) |
+| `DIVIDENDDATA_METRICS` | Individual financial metrics (revenue, EPS, etc.) |
+| `DIVIDENDDATA_RATIOS` | Financial ratios (P/E, current ratio, ROE, etc.) |
+| `DIVIDENDDATA_GROWTH` | Growth metrics (revenue growth, EPS growth, etc.) |
+| `DIVIDENDDATA_QUOTE` | Stock quotes (price, volume, history) |
+| `DIVIDENDDATA_QUOTE_BATCH` | Batch quotes for multiple stocks |
+| `DIVIDENDDATA_PROFILE` | Company profiles (market cap, sector, CEO, etc.) |
+| `DIVIDENDDATA_FUND` | ETF/Fund data (holdings, expense ratio) |
+| `DIVIDENDDATA_ESTIMATES` | Analyst estimates (EPS, revenue forecasts) |
+| `DIVIDENDDATA_SEGMENTS` | Revenue segments (product, geographic) |
+| `DIVIDENDDATA_KPIS` | Key performance indicators |
+| `DIVIDENDDATA_COMMODITIES` | Commodities data (oil, gold, etc.) |
+| `DIVIDENDDATA_CRYPTO` | Cryptocurrency data |
+| `DIVIDENDDATA_PRICE_TARGET` | Analyst price targets |
+
+---
+
+## Google Sheets vs Excel
+
+Function names are consistent across both platforms. The only difference is the separator: Google Sheets uses `_` (underscore) and Excel uses `.` (dot). This is a platform requirement — not a Dividend Data choice.
+
+**The rule: same function name, swap the separator.**
+
+| Function | Google Sheets | Excel |
+|----------|--------------|-------|
+| Dividends | `=DIVIDENDDATA_DIVIDENDS(...)` | `=DIVIDENDDATA.DIVIDENDS(...)` |
+| Dividends Batch | `=DIVIDENDDATA_DIVIDENDS_BATCH(...)` | `=DIVIDENDDATA.DIVIDENDS_BATCH(...)` |
+| Statement | `=DIVIDENDDATA_STATEMENT(...)` | `=DIVIDENDDATA.STATEMENT(...)` |
+| Metrics | `=DIVIDENDDATA_METRICS(...)` | `=DIVIDENDDATA.METRICS(...)` |
+| Ratios | `=DIVIDENDDATA_RATIOS(...)` | `=DIVIDENDDATA.RATIOS(...)` |
+| Growth | `=DIVIDENDDATA_GROWTH(...)` | `=DIVIDENDDATA.GROWTH(...)` |
+| Quote | `=DIVIDENDDATA_QUOTE(...)` | `=DIVIDENDDATA.QUOTE(...)` |
+| Quote Batch | `=DIVIDENDDATA_QUOTE_BATCH(...)` | `=DIVIDENDDATA.QUOTE_BATCH(...)` |
+| Profile | `=DIVIDENDDATA_PROFILE(...)` | `=DIVIDENDDATA.PROFILE(...)` |
+| Fund | `=DIVIDENDDATA_FUND(...)` | `=DIVIDENDDATA.FUND(...)` |
+| Estimates | `=DIVIDENDDATA_ESTIMATES(...)` | `=DIVIDENDDATA.ESTIMATES(...)` |
+| Segments | `=DIVIDENDDATA_SEGMENTS(...)` | `=DIVIDENDDATA.SEGMENTS(...)` |
+| KPIs | `=DIVIDENDDATA_KPIS(...)` | `=DIVIDENDDATA.KPIS(...)` |
+| Commodities | `=DIVIDENDDATA_COMMODITIES(...)` | `=DIVIDENDDATA.COMMODITIES(...)` |
+| Crypto | `=DIVIDENDDATA_CRYPTO(...)` | `=DIVIDENDDATA.CRYPTO(...)` |
+| Price Target | `=DIVIDENDDATA_PRICE_TARGET(...)` | `=DIVIDENDDATA.PRICE_TARGET(...)` |
+
+Parameters, metrics, and outputs are identical across both platforms.
+
+> **📌 Note for existing Google Sheets users:** If you're using `=DIVIDENDDATA("AAPL", ...)` or `=DIVIDENDDATA_BATCH(...)`, those still work and will continue to work. The new names `DIVIDENDDATA_DIVIDENDS` and `DIVIDENDDATA_DIVIDENDS_BATCH` are the recommended standard for consistency with the Excel version.
 
 # How to Install & Update
 **Early Access: Google Sheets**
@@ -30,7 +93,7 @@ The add-on requires specific permissions to run calculations and display data in
 ### Troubleshooting: "Permission Denied" or Not Working?
 If you are getting errors immediately after installing, you likely missed an authorization checkbox.
 
-**How to Fix or Install the Newsest Version:**
+**How to Fix or Install the Newest Version:**
 1.  Go to **Extensions > Add-ons > Manage Add-ons**.
 2.  Find **Dividend Data** and select **Uninstall**.
 3.  Refresh your page.
@@ -39,13 +102,15 @@ If you are getting errors immediately after installing, you likely missed an aut
 
 ---
 
-_Microsoft Excel is coming soon! It's in active development. Your feedback is appreciated in this early access period!_
+_Also available for Microsoft Excel! See the [Excel Add-in Documentation](https://github.com/divdatdev/DividendData-Excel-Docs)._
 
-_Below, I'll explain each of the functions available:_
+_Below, you'll find detailed documentation for each function:_
 
-## 1) DIVIDENDDATA
+## 1) DIVIDENDDATA_DIVIDENDS
 ### Description
 Retrieves various dividend-related data for a single stock symbol. This function is useful for analyzing a company's dividend payments, yields, growth trends, and sustainability through payout ratios. It can return single values for quick metrics or tables for historical data.
+
+> _**Backwards compatible:** `=DIVIDENDDATA(...)` still works as an alias for this function._
 
 ### Parameters
 
@@ -78,17 +143,23 @@ _Available metrics:_
 
 ### Examples:
 
-**Input**: `=DIVIDENDDATA("MSFT", "fwd_yield")`
+**Get Microsoft's forward dividend yield:**
+```
+=DIVIDENDDATA_DIVIDENDS("MSFT", "fwd_yield")
+```
+→ Returns: `0.008` (0.8%)
 
-**Output**: Forward dividend yield as decimal (e.g., 0.008).
+**Get Microsoft's most recent ex-dividend date:**
+```
+=DIVIDENDDATA_DIVIDENDS("MSFT", "ex_div_date")
+```
+→ Returns: `2025-11-19`
 
-**Input:** =DIVIDENDDATA("MSFT", "ex_div_date")
-
-**Output:** Most recent ex-dividend date (e.g., 2025-11-19).
-
-**Input**: `=DIVIDENDDATA("MSFT", "history", TRUE)`
-
-**Output**: Table with headers and full historical dividend data.
+**Get Microsoft's full dividend history with headers:**
+```
+=DIVIDENDDATA_DIVIDENDS("MSFT", "history", TRUE)
+```
+→ Returns table:
 
 | Declaration Date  | Record Date | Payment Date  | Adjusted Dividend | Dividend  | Growth Rate | Frequency |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -99,9 +170,10 @@ _Available metrics:_
 
 _(The data above is formatted. In reality, it will return the raw numbers. You can choose how to format within the returned cells.)_
 
-**Input**: `=DIVIDENDDATA("MSFT", "summary")`
-
-**Output**: Table with headers and current full historical dividend data.
+**Get Procter & Gamble's dividend summary:**
+```
+=DIVIDENDDATA_DIVIDENDS("PG", "summary")
+```
 
 | Annual Dividend (FWD)	| Dividend Yield (FWD)	| Annual Dividend (TTM)	| Dividend Yield (TTM)	| Payment Frequency	| Next Dividend | Declaration Date | Ex-Div Date | Payment Date | 1 Year CAGR |	3 Year CAGR |	5 Year CAGR |	10 Year CAGR |	Payout Ratio (Net Income) | Payout Ratio (Free Cash Flow) |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -110,9 +182,11 @@ _(The data above is formatted. In reality, it will return the raw numbers. You c
 _(The data above is formatted. In reality, it will return the raw numbers. You can choose how to format within the returned cells.)_
 
 
-## 2) DIVIDENDDATA_BATCH
+## 2) DIVIDENDDATA_DIVIDENDS_BATCH
 ### Description
 Retrieves batch dividend data for multiple stock symbols. This function is efficient for fetching dividend information across several tickers at once, such as latest payouts or historical tables. It supports both latest values and full history.
+
+> _**Backwards compatible:** `=DIVIDENDDATA_BATCH(...)` still works as an alias for this function._
 
 ### Parameters
 
@@ -137,13 +211,17 @@ _Available metrics:_
 
 ### Examples
 
-**Input**: `=DIVIDENDDATA_BATCH("MSFT,AAPL", "fwd_payout,yield", TRUE)`
+**Get forward payouts and yields for a dividend portfolio:**
+```
+=DIVIDENDDATA_DIVIDENDS_BATCH("MSFT,AAPL", "fwd_payout,yield", TRUE)
+```
+→ Returns table with symbols, forward payouts, and yields.
 
-**Output**: Table with symbols, forward payouts, and yields.
-
-**Input**: `=DIVIDENDDATA_BATCH("MSFT,KMB", "history")`
-
-**Output**: Flat historical dividend table for all symbols.
+**Get combined dividend history for multiple stocks:**
+```
+=DIVIDENDDATA_DIVIDENDS_BATCH("MSFT,KMB", "history")
+```
+→ Returns flat historical dividend table for all symbols.
 
 ## 3) DIVIDENDDATA_STATEMENT
 ### Description
@@ -726,7 +804,7 @@ Retrieves key performance indicators (KPIs) and segments from Fiscal.ai. Useful 
 
 **Input**: `=DIVIDENDDATA_KPIS("AAPL", "quarterly")`
 
-Output**: Quarterly KPIs table without headers.
+**Output**: Quarterly KPIs table without headers.
 
 ## 13) DIVIDENDDATA_COMMODITIES
 ### Description
@@ -896,4 +974,16 @@ _Available metrics:_
 
 **Output**: A table showing quarterly revenue estimates and growth rates.
 
-</DOCUMENT>
+---
+
+## Support
+
+- **Help Center:** [help.dividenddata.com](https://help.dividenddata.com)
+- **Email:** support@dividenddata.com
+- **YouTube Tutorials:** [@DividendData](https://www.youtube.com/@DividendData)
+
+---
+
+<p align="center">
+  <strong>Built for dividend investors, by dividend investors.</strong>
+</p>
