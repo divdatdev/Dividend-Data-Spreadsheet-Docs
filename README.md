@@ -20,22 +20,22 @@
 
 | Function | Description |
 |----------|-------------|
-| `DIVIDENDDATA_DIVIDENDS` | Dividend data (payouts, yields, history, growth) |
-| `DIVIDENDDATA_DIVIDENDS_BATCH` | Batch dividend data for multiple stocks |
-| `DIVIDENDDATA_STATEMENT` | Financial statements (income, balance, cash flow) |
-| `DIVIDENDDATA_METRICS` | Individual financial metrics (revenue, EPS, etc.) |
-| `DIVIDENDDATA_RATIOS` | Financial ratios (P/E, current ratio, ROE, etc.) |
-| `DIVIDENDDATA_GROWTH` | Growth metrics (revenue growth, EPS growth, etc.) |
-| `DIVIDENDDATA_QUOTE` | Stock quotes (price, volume, history) |
-| `DIVIDENDDATA_QUOTE_BATCH` | Batch quotes for multiple stocks |
-| `DIVIDENDDATA_PROFILE` | Company profiles (market cap, sector, CEO, etc.) |
-| `DIVIDENDDATA_FUND` | ETF/Fund data (holdings, expense ratio) |
-| `DIVIDENDDATA_ESTIMATES` | Analyst estimates (EPS, revenue forecasts) |
-| `DIVIDENDDATA_SEGMENTS` | Revenue segments (product, geographic) |
-| `DIVIDENDDATA_KPIS` | Key performance indicators |
-| `DIVIDENDDATA_COMMODITIES` | Commodities data (oil, gold, etc.) |
-| `DIVIDENDDATA_CRYPTO` | Cryptocurrency data |
-| `DIVIDENDDATA_PRICE_TARGET` | Analyst price targets |
+| [`DIVIDENDDATA_DIVIDENDS`](#1-dividenddata_dividends) | Dividend data (payouts, yields, history, growth) |
+| [`DIVIDENDDATA_DIVIDENDS_BATCH`](#2-dividenddata_dividends_batch) | Batch dividend data for multiple stocks |
+| [`DIVIDENDDATA_STATEMENT`](#3-dividenddata_statement) | Financial statements (income, balance, cash flow) |
+| [`DIVIDENDDATA_METRICS`](#4-dividenddata_metrics) | Individual financial metrics (revenue, EPS, etc.) |
+| [`DIVIDENDDATA_RATIOS`](#5-dividenddata_ratios) | Financial ratios (P/E, current ratio, ROE, etc.) |
+| [`DIVIDENDDATA_GROWTH`](#6-dividenddata_growth) | Growth metrics (revenue growth, EPS growth, etc.) |
+| [`DIVIDENDDATA_QUOTE`](#7-dividenddata_quote) | Stock quotes (price, volume, history) |
+| [`DIVIDENDDATA_QUOTE_BATCH`](#8-dividenddata_quote_batch) | Batch quotes for multiple stocks |
+| [`DIVIDENDDATA_PROFILE`](#9-dividenddata_profile) | Company profiles (market cap, sector, CEO, etc.) |
+| [`DIVIDENDDATA_FUND`](#10-dividenddata_fund) | ETF/Fund data (holdings, expense ratio) |
+| [`DIVIDENDDATA_SEGMENTS`](#11-dividenddata_segments) | Revenue segments (product, geographic) |
+| [`DIVIDENDDATA_KPIS`](#12-dividenddata_kpis) | Key performance indicators |
+| [`DIVIDENDDATA_COMMODITIES`](#13-dividenddata_commodities) | Commodities data (oil, gold, etc.) |
+| [`DIVIDENDDATA_CRYPTO`](#14-dividenddata_crypto) | Cryptocurrency data |
+| [`DIVIDENDDATA_PRICE_TARGET`](#15-dividenddata_price_target) | Analyst price targets |
+| [`DIVIDENDDATA_ESTIMATES`](#16-dividenddata_estimates) | Analyst estimates (EPS, revenue forecasts) |
 
 ---
 
