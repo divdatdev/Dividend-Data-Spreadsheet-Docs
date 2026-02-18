@@ -18,6 +18,8 @@
 
 ## Quick Reference
 
+> **Jump to:** [Installation](#how-to-install--update) · [Quick Action Sidebar](#quick-action-sidebar) · [Function Builder](#function-builder) · [Function Reference](#function-reference)
+
 | Function | Description |
 |----------|-------------|
 | [`DIVIDENDDATA_DIVIDENDS`](#1-dividenddata_dividends) | Dividend data (payouts, yields, history, growth) |
@@ -103,6 +105,170 @@ If you are getting errors immediately after installing, you likely missed an aut
 ---
 
 _Also available for Microsoft Excel! See the [Excel Add-in Documentation](https://github.com/divdatdev/DividendData-Excel-Docs)._
+
+---
+
+## Quick Action Sidebar
+
+The Quick Action Sidebar is the fastest way to get financial data into your spreadsheet. Instead of writing formulas, you search for a stock, pick a data category, and click **Load Data** — a full, formatted table is inserted starting at your currently selected cell.
+
+### How to Open the Sidebar
+
+1. Go to the **Extensions** menu at the top of Google Sheets.
+2. Hover over **Dividend Data**.
+3. Click **Open Dividend Data Sidebar**.
+4. The sidebar panel opens on the right side of your spreadsheet.
+
+> **Tip:** If you don't see "Dividend Data" under Extensions, the add-on may not be installed or your page needs a refresh. Try reloading the browser tab.
+
+### Signing In
+
+When the sidebar opens, you need to sign in with your Dividend Data account.
+
+1. Click the **Sign In** button in the action bar at the top of the sidebar.
+2. Follow the authentication prompt.
+3. Once signed in, you're ready to pull data.
+
+If you don't have an account yet, visit [DividendData.com](https://www.dividenddata.com/) to create a free account.
+
+### Step 1 — Find a Stock or Fund
+
+At the top of the sidebar, you'll see a search bar labeled **"Search by ticker or company name"**.
+
+- Type a **ticker symbol** (e.g., `MSFT`) or **company name** (e.g., `Microsoft`) to search across 80,000+ supported tickers.
+- Select a result from the dropdown. Popular tickers like NVDA, MSFT, AAPL, GOOG, AMZN, and META appear by default when you focus the search bar.
+- Once selected, the sidebar shows **example formulas** you can click to copy directly to your clipboard, then paste into any cell. This is useful when you want a quick single data point rather than a full table.
+
+### Step 2 — Load Data into Your Sheet
+
+Below the search area, you'll see the **Quick Action** buttons arranged in a grid:
+
+| Button | What It Loads |
+|--------|--------------|
+| **Dividends** | Dividend summary table — yields, payouts, growth rates, ex-dividend dates, payment dates |
+| **Statements** | Full financial statements — Income Statement, Balance Sheet, or Cash Flow |
+| **Metrics** | Key financial metrics — Revenue, EPS, Free Cash Flow, EBITDA, and more |
+| **Ratios** | Financial ratios — P/E, ROE, Debt/Equity, Current Ratio, Payout Ratio, etc. |
+| **KPIs** | Company-specific key performance indicators (e.g., Azure revenue for MSFT) |
+| **Price Targets** | Analyst consensus price targets — high, low, median, number of analysts |
+
+**To load data:**
+
+1. **Search and select a stock** in Step 1.
+2. **Click a category button** (e.g., Statements).
+3. If you selected **Statements**, choose the statement type: **Income**, **Balance**, or **Cash Flow**.
+4. Choose the **Period**: **Annual** or **Quarterly**.
+5. **Click your target cell** in the spreadsheet — this is where the top-left corner of the table will go.
+6. Click the green **Load Data** button.
+7. The full table populates starting at your selected cell, complete with headers.
+
+> **No formulas are inserted.** Load Data pastes static values directly into cells. This is great for quick analysis, one-time snapshots, or when you don't need the data to auto-refresh.
+
+### Additional Sidebar Features
+
+- **Refresh** — Recalculates all Dividend Data formulas in the current sheet. Useful after making changes or if data appears stale.
+- **Sign In** — Authenticate your Dividend Data account.
+- **Docs** — Quick link to this documentation on GitHub.
+- **Dark / Light Mode** — Toggle the sidebar theme with the sun/moon switch in the top-right corner.
+- **How to Use** — Expandable tips section at the bottom of the sidebar with a quick-start guide.
+
+### When to Use the Sidebar vs. Formulas
+
+| Use the Sidebar when... | Use formulas when... |
+|--------------------------|---------------------|
+| You want a full table dumped into your sheet quickly | You want data that auto-refreshes when you reopen the file |
+| You're exploring what data is available for a stock | You're building a model or tracker that pulls live data |
+| You need a one-time snapshot for a report | You want to reference a single data point in a calculation |
+| You're new and want to see what the add-on offers | You know the exact metric you need |
+
+
+---
+
+## Function Builder
+
+The Function Builder is a visual formula editor built into the add-on. It walks you through every data category, every available metric, and every option — then generates the exact formula for you. No memorization, no guessing syntax. Just configure and copy.
+
+### How to Open the Function Builder
+
+1. Go to the **Extensions** menu at the top of Google Sheets.
+2. Hover over **Dividend Data**.
+3. Click **Open Formula Builder**.
+4. The Function Builder panel opens on the right side of your spreadsheet, replacing the main sidebar.
+
+> To return to the main sidebar, close the Function Builder and reopen via **Extensions → Dividend Data → Open Dividend Data Sidebar**.
+
+### How It Works
+
+The Function Builder is organized into four steps. As you make selections, the formula preview at the bottom updates in real-time.
+
+### Step 1 — Choose Data Category
+
+Select the type of financial data you want from the dropdown menu. There are **13 data categories** available:
+
+| Category | Function | What You Get |
+|----------|----------|-------------|
+| Dividends | `DIVIDENDDATA_DIVIDENDS` | Payouts, yields, history, growth rates, payout ratios |
+| Financials | `DIVIDENDDATA_STATEMENT` | Income Statement, Balance Sheet, Cash Flow |
+| Metrics | `DIVIDENDDATA_METRICS` | 100+ individual metrics (Revenue, EPS, FCF, etc.) |
+| Ratios | `DIVIDENDDATA_RATIOS` | 50+ financial ratios (P/E, ROE, D/E, etc.) |
+| Growth | `DIVIDENDDATA_GROWTH` | Growth rates (revenue growth, EPS growth, etc.) |
+| Quotes | `DIVIDENDDATA_QUOTE` | Live price, volume, moving averages, price history |
+| Profile | `DIVIDENDDATA_PROFILE` | Company info — sector, industry, CEO, description |
+| Funds | `DIVIDENDDATA_FUND` | ETF/fund holdings, expense ratio, sector allocation |
+| Estimates | `DIVIDENDDATA_ESTIMATES` | Analyst EPS and revenue forecasts |
+| Segments | `DIVIDENDDATA_SEGMENTS` | Product and geographic revenue breakdowns |
+| KPIs | `DIVIDENDDATA_KPIS` | Company-specific operational metrics |
+| Crypto | `DIVIDENDDATA_CRYPTO` | Cryptocurrency prices and history |
+| Commodities | `DIVIDENDDATA_COMMODITIES` | Commodity prices and history (oil, gold, etc.) |
+| Price Targets | `DIVIDENDDATA_PRICE_TARGET` | Analyst consensus, high, low, median targets |
+
+### Step 2 — Select Asset
+
+Search for any stock, ETF, or fund by **ticker symbol** or **company name**. The search covers 80,000+ supported tickers.
+
+**Batch Mode:** Check the **Multiple tickers (batch)** checkbox to switch to batch mode. Enter comma-separated tickers (e.g., `AAPL,MSFT,KO`) to pull data for multiple stocks in one formula. Batch mode is available for Dividends and Quotes categories.
+
+### Step 3 — Configure Formula
+
+Once you've chosen a category and asset, the configuration options appear:
+
+- **Metric** — A dropdown showing every available metric for your selected category. For example, choosing "Dividends" reveals options like `summary`, `history`, `fwd_yield`, `5y_cagr`, `payout_ratio`, and many more.
+- **Period** — `Annual`, `Quarterly`, or `TTM` (where applicable).
+- **Year** — Filter to a specific year (optional).
+- **Date Range** — For price history, set a `From` and `To` date.
+- **Show Headers** — Check this box to include column/row headers in the output. Recommended for tables.
+
+Every time you change an option, the formula preview below updates instantly.
+
+### Step 4 — Copy Formula
+
+At the bottom of the Function Builder, you'll see the **live formula preview** — a code box that shows the exact Google Sheets formula based on your current selections.
+
+**Example preview:**
+```
+=DIVIDENDDATA_DIVIDENDS("AAPL", "summary", TRUE)
+```
+
+**To use the formula:**
+1. Click the formula preview box or the **Copy Formula** button to copy it to your clipboard.
+2. Click any cell in your spreadsheet.
+3. Paste (`Ctrl+V` or `Cmd+V`).
+4. Press **Enter** — the data populates.
+
+> The formula preview turns green briefly to confirm it was copied.
+
+### Function Builder Tips
+
+- **Explore before you build.** Change the category dropdown to browse what's available — each category reveals different metrics and options.
+- **Use headers for tables.** When pulling summaries, history, or statements, check **Show Headers** so you know what each column represents.
+- **Batch for watchlists.** Enable batch mode and enter your watchlist tickers to build a comparison table with a single formula.
+- **Learn the syntax.** The Function Builder is a great way to learn formula syntax. Once you're comfortable, you can type formulas directly without opening the builder.
+- **Crypto & Commodities.** For these categories, the asset dropdown changes to show available symbols (e.g., `BTCUSD` for Bitcoin, `GCUSD` for Gold). You can also use the `list` metric to see all available symbols.
+
+
+---
+
+## Function Reference
 
 _Below, you'll find detailed documentation for each function:_
 
